@@ -158,7 +158,7 @@ export abstract class Madara extends Source {
     }
 
     async getChapterDetails(mangaId: string, chapterId: string): Promise<ChapterDetails> {
-        console.log("[LOGGING]: " + `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`)
+        // console.log("[LOGGING]: " + `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`)
         const request = createRequestObject({
             url: `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`,
             method: 'GET',
