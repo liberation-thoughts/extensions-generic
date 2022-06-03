@@ -99,6 +99,8 @@ export class Parser {
     parseChapterDetails($: CheerioSelector, mangaId: string, chapterId: string, selector: string): ChapterDetails {
         const pages: string[] = []
 
+        console.log("[LOGGING]: " + `Could not parse page for ${mangaId}/${chapterId}`)
+
         for (const obj of $(selector).toArray()) {
             const page = this.getImageSrc($(obj))
             if (!page) {
