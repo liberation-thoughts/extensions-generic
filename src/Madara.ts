@@ -170,9 +170,6 @@ export abstract class Madara extends Source {
         this.CloudFlareError(data.status)
         const $ = this.cheerio.load(data.data)
 
-        console.log("[LOGGING]: " + `${data.status}`)
-        console.log("[LOGGING]: " + `${data.data}`)
-
         return this.parser.parseChapterDetails($, this.sourceTraversalPathName, chapterId, this.chapterDetailsSelector)
     }
 
