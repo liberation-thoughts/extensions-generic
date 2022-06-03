@@ -1113,7 +1113,7 @@ class Madara extends paperback_extensions_common_1.Source {
     }
     getChapterDetails(mangaId, chapterId) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("[LOGGING]: " + `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`);
+            // console.log("[LOGGING]: " + `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`)
             const request = createRequestObject({
                 url: `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`,
                 method: 'GET',
@@ -1489,9 +1489,9 @@ class Parser {
         const pages = [];
         for (const obj of $(selector).toArray()) {
             const page = this.getImageSrc($(obj));
-            console.log("[LOGGING2]: " + `${page}`);
+            // console.log("[LOGGING2]: " + `${page}`)
             if (!page) {
-                console.log("[LOGGING2]: " + `Could not parse page for ${mangaId}/${chapterId}`);
+                // console.log("[LOGGING2]: " + `Could not parse page for ${mangaId}/${chapterId}`)
                 throw new Error(`Could not parse page for ${mangaId}/${chapterId}`);
             }
             pages.push(page);
@@ -1611,7 +1611,6 @@ class Parser {
     getImageSrc(imageObj) {
         var _a, _b, _c;
         let image;
-        console.log("[LOGGING3]:  " + `${imageObj}`);
         if ((typeof (imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('data-src'))) != 'undefined') {
             image = imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('data-src');
         }
@@ -1627,7 +1626,6 @@ class Parser {
         else {
             image = imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('src');
         }
-        console.log("[LOGGING3]: " + `${image}`);
         return encodeURI(decodeURI(this.decodeHTMLEntity((_c = image === null || image === void 0 ? void 0 : image.trim()) !== null && _c !== void 0 ? _c : '')));
     }
     decodeHTMLEntity(str) {
