@@ -1113,6 +1113,7 @@ class Madara extends paperback_extensions_common_1.Source {
     }
     getChapterDetails(mangaId, chapterId) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log("[LOGGING]: " + `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`);
             const request = createRequestObject({
                 url: `${this.baseUrl}/${this.sourceTraversalPathName}/${chapterId}/`,
                 method: 'GET',
