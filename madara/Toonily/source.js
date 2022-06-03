@@ -1609,7 +1609,7 @@ class Parser {
     }
     // UTILITY METHODS
     getImageSrc(imageObj) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d, _e;
         let image;
         console.log("[LOGGING3]: " + `${imageObj}`);
         if ((typeof (imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('data-src'))) != 'undefined') {
@@ -1621,11 +1621,14 @@ class Parser {
         else if ((typeof (imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('srcset'))) != 'undefined') {
             image = (_b = (_a = imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('srcset')) === null || _a === void 0 ? void 0 : _a.split(' ')[0]) !== null && _b !== void 0 ? _b : '';
         }
+        else if ((typeof (imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('data-cfsrc'))) != 'undefined') {
+            image = (_d = (_c = imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('data-cfsrc')) === null || _c === void 0 ? void 0 : _c.split(' ')[0]) !== null && _d !== void 0 ? _d : '';
+        }
         else {
             image = imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('src');
         }
         console.log("[LOGGING3]: " + `${image}`);
-        return encodeURI(decodeURI(this.decodeHTMLEntity((_c = image === null || image === void 0 ? void 0 : image.trim()) !== null && _c !== void 0 ? _c : '')));
+        return encodeURI(decodeURI(this.decodeHTMLEntity((_e = image === null || image === void 0 ? void 0 : image.trim()) !== null && _e !== void 0 ? _e : '')));
     }
     decodeHTMLEntity(str) {
         return entities.decodeHTML(str);
