@@ -100,7 +100,7 @@ export class Parser {
         const pages: string[] = []
 
         console.log("[LOGGING2]: " + $)
-        console.log("[LOGGING2]: " + `${mangaId}`
+        console.log("[LOGGING2]: " + `${mangaId}`)
 
         for (const obj of $(selector).toArray()) {
             const page = this.getImageSrc($(obj))
