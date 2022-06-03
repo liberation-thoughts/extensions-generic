@@ -1487,6 +1487,7 @@ class Parser {
     }
     parseChapterDetails($, mangaId, chapterId, selector) {
         const pages = [];
+        console.log("[LOGGING]: " + `Could not parse page for ${mangaId}/${chapterId}`);
         for (const obj of $(selector).toArray()) {
             const page = this.getImageSrc($(obj));
             if (!page) {
