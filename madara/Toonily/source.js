@@ -1123,7 +1123,7 @@ class Madara extends paperback_extensions_common_1.Source {
             const data = yield this.requestManager.schedule(request, 1);
             this.CloudFlareError(data.status);
             const $ = this.cheerio.load(data.data);
-            return this.parser.parseChapterDetails($, mangaId, chapterId, this.chapterDetailsSelector);
+            return this.parser.parseChapterDetails($, this.sourceTraversalPathName, chapterId, this.chapterDetailsSelector);
         });
     }
     getTags() {
