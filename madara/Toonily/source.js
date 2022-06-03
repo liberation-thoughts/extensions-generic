@@ -1123,8 +1123,6 @@ class Madara extends paperback_extensions_common_1.Source {
             const data = yield this.requestManager.schedule(request, 1);
             this.CloudFlareError(data.status);
             const $ = this.cheerio.load(data.data);
-            console.log("[LOGGING]: " + `${data.status}`);
-            console.log("[LOGGING]: " + `${data.data}`);
             return this.parser.parseChapterDetails($, this.sourceTraversalPathName, chapterId, this.chapterDetailsSelector);
         });
     }
@@ -1613,6 +1611,7 @@ class Parser {
     getImageSrc(imageObj) {
         var _a, _b, _c;
         let image;
+        console.log("[LOGGING3]: " + `${imageObj}`);
         if ((typeof (imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('data-src'))) != 'undefined') {
             image = imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('data-src');
         }
@@ -1625,6 +1624,7 @@ class Parser {
         else {
             image = imageObj === null || imageObj === void 0 ? void 0 : imageObj.attr('src');
         }
+        console.log("[LOGGING3]: " + `${image}`);
         return encodeURI(decodeURI(this.decodeHTMLEntity((_c = image === null || image === void 0 ? void 0 : image.trim()) !== null && _c !== void 0 ? _c : '')));
     }
     decodeHTMLEntity(str) {
