@@ -170,7 +170,7 @@ export abstract class Madara extends Source {
         this.CloudFlareError(data.status)
         const $ = this.cheerio.load(data.data)
 
-        return this.parser.parseChapterDetails($, ${this.sourceTraversalPathName}, chapterId, this.chapterDetailsSelector)
+        return this.parser.parseChapterDetails($, this.sourceTraversalPathName, chapterId, this.chapterDetailsSelector)
     }
 
     override async getTags(): Promise<TagSection[]> {
