@@ -1123,6 +1123,7 @@ class Madara extends paperback_extensions_common_1.Source {
             const data = yield this.requestManager.schedule(request, 1);
             this.CloudFlareError(data.status);
             const $ = this.cheerio.load(data.data);
+            console.log("[LOGGING2]: " + this.cheerio.load(data.data));
             return this.parser.parseChapterDetails($, mangaId, chapterId, this.chapterDetailsSelector);
         });
     }
@@ -1487,11 +1488,10 @@ class Parser {
     }
     parseChapterDetails($, mangaId, chapterId, selector) {
         const pages = [];
-        console.log("[LOGGING2]: " + $);
-        console.log("[LOGGING2]: " + `${mangaId}`);
         for (const obj of $(selector).toArray()) {
             const page = this.getImageSrc($(obj));
             if (!page) {
+                console.log("[LOGGING2]: " + `${mangaId}`);
                 console.log("[LOGGING2]: " + `Could not parse page for ${mangaId}/${chapterId}`);
                 throw new Error(`Could not parse page for ${mangaId}/${chapterId}`);
             }
