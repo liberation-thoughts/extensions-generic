@@ -239,6 +239,9 @@ export class Parser {
         else if ((typeof imageObj?.attr('srcset')) != 'undefined') {
             image = imageObj?.attr('srcset')?.split(' ')[0] ?? ''
         }
+        else if ((typeof imageObj?.attr('data-cfsrc')) != 'undefined') {
+            image = imageObj?.attr('data-cfsrc')
+        }
         else {
             image = imageObj?.attr('src')
         }
