@@ -229,7 +229,7 @@ export class Parser {
     // UTILITY METHODS
     getImageSrc(imageObj: Cheerio | undefined): string {
         let image
-        console.log("[LOGGING3]: " + `${imageObj}`)
+        console.log("[LOGGING3]:  " + `${imageObj}`)
         if ((typeof imageObj?.attr('data-src')) != 'undefined') {
             image = imageObj?.attr('data-src')
         }
